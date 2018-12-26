@@ -1,12 +1,13 @@
 package io.pivotal.syanagihara.functions;
 
 import java.util.Random;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
-public class NumberGenerator implements Supplier<Integer> {
+public class NumberGenerator implements Function<Integer, Integer> {
 
     @Override
-    public Integer get() {
-        return new Random().nextInt(99) + 1;
+    public Integer apply(Integer bound) {
+        return new Random().nextInt(bound) + 1;
     }
 }
